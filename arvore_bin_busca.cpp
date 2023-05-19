@@ -1,7 +1,7 @@
 /* Estruturas de Dados - Trabalho pratico
 
 Professor: Diego P. Rubert
-Aluno(s):
+Aluno(s): Paulo Guilherme Silva dos Santos Reis
 
 */
 
