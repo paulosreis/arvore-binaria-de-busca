@@ -83,8 +83,6 @@ int main(void)
     printf("Valores de T em ordem crescente: ");
     T.escreve_ordenado(); // TODO: implemente depois escreve_ordenado
 
-    return 0; // TODO: remover após implementar minimo, maximo, sucessor, predecessor
-
     No *raiz = T.get_raiz();
     printf("Raiz: ");
     raiz->escreve("\n");
