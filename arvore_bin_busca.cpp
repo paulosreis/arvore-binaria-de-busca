@@ -294,6 +294,20 @@ No *ArvBinBusca::sucessor(No *x)
 No *ArvBinBusca::predecessor(No *x)
 {
     // TODO: implementar
+    No *y;
+    if (x->esq != NULL)
+    {
+        return maximo(x->esq);
+    }
+    y = x->pai;
+    while (y != NULL && x == y->esq)
+    {
+        x = y;
+        y = y->pai;
+    }
+
+    return y;
+    
 }
 
 void ArvBinBusca::insere(int chave)
