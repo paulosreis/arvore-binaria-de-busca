@@ -265,6 +265,11 @@ No *ArvBinBusca::maximo()
 No *ArvBinBusca::maximo(No *x)
 {
     // TODO: implementar
+    while(x->dir != NULL)
+    {
+        x = x->dir;
+    }
+    return x;
 }
 
 No *ArvBinBusca::sucessor(No *x)
