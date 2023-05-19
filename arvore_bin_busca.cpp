@@ -275,6 +275,20 @@ No *ArvBinBusca::maximo(No *x)
 No *ArvBinBusca::sucessor(No *x)
 {
     // TODO: implementar
+    No *y;
+    if (x->dir != NULL)
+    {
+        return minimo(x->dir);
+    }
+    y = x->pai;
+
+    while (y != NULL && x == y->dir)
+    {
+        x = y;
+        y = y->pai;
+    }
+
+    return y;
 }
 
 No *ArvBinBusca::predecessor(No *x)
