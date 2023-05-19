@@ -194,6 +194,11 @@ void ArvBinBusca::escreve_ordenado()
 void ArvBinBusca::escreve_ordenado(No *x)
 {
     // TODO: implementar (escrever em percurso em-ordem em uma única linha)
+    if (x != NULL){
+        escreve_ordenado(x->esq);
+        x->escreve(" ");
+        escreve_ordenado(x->dir);
+    }
 }
 
 void ArvBinBusca::escreve()
