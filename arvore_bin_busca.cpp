@@ -275,6 +275,27 @@ void ArvBinBusca::insere(int chave)
 void ArvBinBusca::insere(No *z)
 {
     // TODO: implementar
+    No *novoNo = z;
+    No *noAtual = NULL;
+    No *noPai = raiz;
+
+    while (noPai != NULL)
+    {
+        noAtual = noPai;
+        if (novoNo->chave < noPai->chave)
+            noPai = noPai->esq;
+        else
+            noPai = noPai->dir;
+    }
+
+    novoNo->pai = noAtual;
+
+    if (noAtual == NULL)
+        raiz = novoNo;
+    else if (novoNo->chave < noAtual->chave)
+        noAtual->esq = novoNo;
+    else
+        noAtual->dir = novoNo;
 }
 
 void ArvBinBusca::transplante(No *u, No *v)
