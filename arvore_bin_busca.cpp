@@ -192,7 +192,8 @@ void ArvBinBusca::escreve_ordenado()
 void ArvBinBusca::escreve_ordenado(No *x)
 {
     // TODO: implementar (escrever em percurso em-ordem em uma única linha)
-    if (x != NULL){
+    if (x != NULL)
+    {
         escreve_ordenado(x->esq);
         x->escreve(" ");
         escreve_ordenado(x->dir);
@@ -237,6 +238,19 @@ No *ArvBinBusca::busca(int k)
 No *ArvBinBusca::busca(No *x, int k)
 {
     // TODO: implementar
+    if (x == NULL || k == x->chave)
+    {
+        return x;
+    }
+
+    if (k < x->chave)
+    {
+        return busca(x->esq, k);
+    }
+    else
+    {
+        return busca(x->dir, k);
+    }
 }
 
 No *ArvBinBusca::minimo()
@@ -252,7 +266,6 @@ No *ArvBinBusca::minimo(No *x)
         x = x->esq;
     }
     return x;
-    
 }
 
 No *ArvBinBusca::maximo()
@@ -263,7 +276,7 @@ No *ArvBinBusca::maximo()
 No *ArvBinBusca::maximo(No *x)
 {
     // TODO: implementar
-    while(x->dir != NULL)
+    while (x->dir != NULL)
     {
         x = x->dir;
     }
@@ -305,7 +318,6 @@ No *ArvBinBusca::predecessor(No *x)
     }
 
     return y;
-    
 }
 
 void ArvBinBusca::insere(int chave)
