@@ -355,6 +355,22 @@ void ArvBinBusca::insere(No *z)
 void ArvBinBusca::transplante(No *u, No *v)
 {
     // TODO: implementar
+    if (u->pai == NULL)
+    {
+        raiz = v;
+    }
+    else if (u == u->pai->esq)
+    {
+        u->pai->esq = v;
+    }
+    else
+    {
+        u->pai->dir = v;
+    }
+    if (v != NULL)
+    {
+        v->pai = u->pai;
+    }
 }
 
 bool ArvBinBusca::remove(int chave)
