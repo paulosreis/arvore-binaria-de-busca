@@ -417,6 +417,12 @@ void ArvBinBusca::limpa()
 void ArvBinBusca::limpa(No *x)
 {
     // TODO: implementar
+    if (x != NULL)
+    {
+        limpa(x->esq);
+        limpa(x->dir);
+        delete x;
+    }
 }
 
 void ArvBinBusca::copia(const ArvBinBusca &T)
