@@ -106,8 +106,6 @@ int main(void)
     printf("Máximo: ");
     maximo->escreve("\n");
 
-    return 0; // TODO: remover após implementar remoção
-
     T.remove(0);  // Caso 1
     T.remove(13); // Caso 2
     T.remove(10); // Caso 3b + 3a
@@ -387,6 +385,27 @@ bool ArvBinBusca::remove(int chave)
 void ArvBinBusca::remove(No *z)
 {
     // TODO: implementar
+    if (z->esq == NULL)
+    {
+        transplante(z, z->dir);
+    }
+    else if (z->dir == NULL)
+    {
+        transplante(z, z->esq);
+    }
+    else
+    {
+        No *y = minimo(z->dir);
+        if (y->pai != z)
+        {
+            transplante(y, y->dir);
+            y->dir = z->dir;
+            y->dir->pai = y;
+        }
+        transplante(z, y);
+        y->esq = z->esq;
+        y->esq->pai = y;
+    }
 }
 
 void ArvBinBusca::limpa()
