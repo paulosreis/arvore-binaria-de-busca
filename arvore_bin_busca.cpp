@@ -113,7 +113,6 @@ int main(void)
     printf("T:\n");
     T.escreve();
 
-    return 0; // TODO: remover após implementar construtor de cópia e operador de atribuição
 
     ArvBinBusca T2(T); // construtor de cópia
     T2.insere(30);
@@ -439,4 +438,14 @@ void ArvBinBusca::copia(const ArvBinBusca &T)
 void ArvBinBusca::copia(No *dest, No *orig)
 {
     // TODO: implementar
+    if (orig->esq != NULL)
+    {
+        dest->esq = new No(orig->esq->chave);
+        copia(dest->esq, orig->esq);
+    }
+    if (orig->dir != NULL)
+    {
+        dest->dir = new No(orig->dir->chave);
+        copia(dest->dir, orig->dir);
+    }
 }
