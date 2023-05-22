@@ -438,14 +438,22 @@ void ArvBinBusca::copia(const ArvBinBusca &T)
 void ArvBinBusca::copia(No *dest, No *orig)
 {
     // TODO: implementar
+    if (orig == NULL)
+        return;
+
+    dest->chave = orig->chave;
+
     if (orig->esq != NULL)
     {
         dest->esq = new No(orig->esq->chave);
+        dest->esq->pai = dest;
         copia(dest->esq, orig->esq);
     }
+
     if (orig->dir != NULL)
     {
         dest->dir = new No(orig->dir->chave);
+        dest->dir->pai = dest;
         copia(dest->dir, orig->dir);
     }
 }
