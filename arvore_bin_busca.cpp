@@ -210,7 +210,7 @@ void ArvBinBusca::escreve(const string &prefixo, No *x)
     bool ehDireito = x->pai and x->pai->dir == x;
     bool temIrmaoEsq = x->pai and x->pai->esq;
 
-    printf(prefixo.c_str());
+    printf("%s", prefixo.c_str());
     printf(ehDireito and temIrmaoEsq ? "├──" : "└──");
 
     if (x->pai == NULL) // raiz
